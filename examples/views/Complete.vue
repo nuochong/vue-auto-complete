@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png" />
-    <AutoCompleteMe
+    <AutoComplete
       inputClass="test-class"
       method="get"
       placeholder="请输入搜索内容"
@@ -18,9 +18,9 @@
       @select="onSelect"
     >
       <span slot="noResults">没有找到</span>
-    </AutoCompleteMe>
+    </AutoComplete>
 
-    <AutoCompleteMe
+    <AutoComplete
       inputClass="test-class"
       method="get"
       placeholder="请输入搜索内容"
@@ -32,17 +32,17 @@
       :clear-button-icon="true"
     >
       <span slot="noResults">没有找到</span>
-    </AutoCompleteMe>
+    </AutoComplete>
   </div>
 </template>
 
 <script>
-// import AutoCompleteMe from '../plugin/AutoCompleteMe';
+// import AutoComplete from '../../packages;
 
 export default {
   name: 'complete',
   components: {
-    // AutoCompleteMe
+    // AutoComplete
   },
   methods: {
     handleSearch(value) {
