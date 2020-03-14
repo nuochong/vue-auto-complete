@@ -16,6 +16,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "deploy": "bash deploy.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "format": "eslint --fix --ext .js,.vue src",
