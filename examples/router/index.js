@@ -1,15 +1,15 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Home from '../views/Home.vue';
-import Complete from '../views/Complete.vue';
+import Example from '../views/Example.vue';
+import Documentation from '../views/Documentation.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Example',
+    component: Example
   },
   {
     path: '/about',
@@ -21,9 +21,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
-    path: '/complete',
-    name: 'complete',
-    component: Complete
+    path: '/documentation',
+    name: 'Documentation',
+    component: Documentation
   }
 ];
 

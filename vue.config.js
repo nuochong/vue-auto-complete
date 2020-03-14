@@ -21,6 +21,14 @@ module.exports = {
       alias: {
         '@': path.join(__dirname, 'examples/')
       }
+    },
+    module: {
+      rules: [
+        {
+          test: /.md$/,
+          use: 'text-loader'
+        }
+      ]
     }
   }
 };

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link> |
-      <router-link to="/complete">complete</router-link>
+      <router-link to="/">Example</router-link> |
+      <router-link to="/documentation">Documentation</router-link> |
+      <router-link to="/about">About</router-link>
     </div>
     <router-view />
   </div>
@@ -29,5 +29,23 @@
       color: #42b983;
     }
   }
+}
+
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+#app .hljs {
+  background: #fff;
 }
 </style>
