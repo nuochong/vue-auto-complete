@@ -26,9 +26,8 @@ jobs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v2.5.0
       env:
-        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         ACTIONS_DEPLOY_KEY: ${{secrets.key}}
-        # PUBLISH_BRANCH: gh-pages
-        PUBLISH_BRANCH: master
+        PUBLISH_BRANCH: gh-pages
+        # PUBLISH_BRANCH: master
         PUBLISH_DIR: docs
