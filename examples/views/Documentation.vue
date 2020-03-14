@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
     <vue-markdown>
       {{ about }}
@@ -14,7 +13,8 @@ import hljs from 'highlight.js';
 // import HelloWorld from '@/components/HelloWorld.vue';
 import VueMarkdown from 'vue-markdown';
 import about from '../../README.md';
-import 'highlight.js/styles/atom-one-light.css';
+// import 'highlight.js/styles/atom-one-light.css';
+import 'highlight.js/styles/github.css';
 
 export default {
   name: 'Home',

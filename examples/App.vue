@@ -5,6 +5,7 @@
       <router-link to="/documentation">Documentation</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+    <img alt="Vue logo" src="./assets/logo.png" />
     <div class="app-wrap">
       <router-view />
     </div>
@@ -53,13 +54,13 @@ a {
 }
 
 #app {
-  .hljs {
-    background: #fff;
-  }
   table {
     margin: 0 auto;
     border-spacing: 0;
     border-collapse: collapse;
+  }
+  pre {
+    text-align: left;
   }
 }
 </style>
