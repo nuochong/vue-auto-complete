@@ -7,10 +7,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.16.2]
-
     steps:
     - uses: actions/checkout@v1  # actions/checkout@v2
     - name: Run a one-line script
@@ -19,12 +15,16 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1 
-      with:
-        node-version: ${{ matrix.node-version }}
-    - name: run deploy.sh 
+    
+    - uses: actions/checkout@v1
+    - run: npm ci
+    - run: npm run build
+    
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v2.5.0
       env:
         GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      run: npm install && npm run deploy
+        ACTIONS_DEPLOY_KEY: ${{secrets.key}}
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: docs
