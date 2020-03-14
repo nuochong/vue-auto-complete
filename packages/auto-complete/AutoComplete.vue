@@ -112,7 +112,6 @@
 export default {
   name: 'AutoComplete',
   props: {
-    msg: String,
     source: {
       type: [String, Function],
       required: true
@@ -124,7 +123,8 @@ export default {
     },
     // 初始值
     initialValue: {
-      type: [String, Number]
+      type: [String, Number],
+      required: false
     },
     resultsProperty: {
       type: String,
@@ -145,7 +145,8 @@ export default {
     },
     showNoResults: {
       type: Boolean,
-      default: true
+      default: true,
+      required: false
     },
     // 文本框获取焦点后是否显示上次搜索结果
     showFocusResults: {
