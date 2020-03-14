@@ -6,6 +6,8 @@
 yarn add vue-auto-complete
 ```
 
+## Usage
+
 main.js
 
 ```js
@@ -50,7 +52,7 @@ Vue.use(AutoComplete);
     </AutoComplete>
 ```
 
-## Usage
+
 
 ## Available props
 
