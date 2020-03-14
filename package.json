@@ -1,0 +1,50 @@
+{
+  "name": "vue-auto-complete",
+  "version": "0.1.0",
+  "description": "vue-auto-complete",
+  "main": "lib/auto-complete.common.js",
+  "private": false,
+  "license": "MIT",
+  "author": "nuochong <nuo.chong@163.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nuochong/vue-auto-complete"
+  },
+  "bugs": {
+    "url": "https://github.com/nuochong/vue-auto-complete/issues"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
+    "format": "eslint --fix --ext .js,.vue src",
+    "lib": "vue-cli-service build --target lib --name auto-complete --dest lib packages/index.js"
+  },
+  "dependencies": {
+    "core-js": "^3.6.4",
+    "highlight.js": "^9.18.1",
+    "text-loader": "^0.0.1",
+    "vue": "^2.6.11",
+    "vue-markdown": "^2.2.4",
+    "vue-router": "^3.1.5",
+    "vuex": "^3.1.2"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.2.3",
+    "@vue/cli-plugin-eslint": "^4.2.0",
+    "@vue/cli-plugin-unit-mocha": "^4.2.0",
+    "@vue/cli-service": "^4.2.0",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/test-utils": "1.0.0-beta.31",
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.1.2",
+    "eslint": "^6.7.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-vue": "^6.1.2",
+    "prettier": "^1.19.1",
+    "sass": "^1.25.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
