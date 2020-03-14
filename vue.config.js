@@ -32,5 +32,13 @@ module.exports = {
         }
       ]
     }
+  },
+  chainWebpack: config => {
+    // 默认小于5kb assets中的图片被转换为base64，自定义为2kb
+    config.module
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 2048 }))
   }
 };
