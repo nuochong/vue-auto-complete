@@ -19,6 +19,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
     - uses: actions/checkout@v1
+    - run: npm install
     - run: npm ci
     - run: npm run build
     
