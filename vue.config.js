@@ -2,6 +2,8 @@ const path = require('path');
 
 module.exports = {
   publicPath: '/vue-auto-complete',
+  // 取消map文件
+  productionSourceMap: false,
   // 输出文件目录
   outputDir: 'docs',
   // 将 examples 目录添加为新的页面
