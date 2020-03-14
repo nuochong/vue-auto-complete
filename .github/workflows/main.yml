@@ -28,6 +28,6 @@ jobs:
       env:
         NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         ACTIONS_DEPLOY_KEY: ${{secrets.key}}
-        # PUBLISH_BRANCH: gh-pages
-        PUBLISH_BRANCH: master
+        PUBLISH_BRANCH: gh-pages
+        # PUBLISH_BRANCH: master
         PUBLISH_DIR: docs
