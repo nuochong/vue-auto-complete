@@ -50,9 +50,7 @@ export default {
       if (!value || value.indexOf('@') >= 0) {
         result = [];
       } else {
-        result = ['gmail.com', '163.com', 'qq.com'].map(
-          domain => `${value}@${domain}`
-        );
+        result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
       }
       console.log('前台处理结果', result);
       return result;
