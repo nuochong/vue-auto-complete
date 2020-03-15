@@ -21,7 +21,8 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': path.join(__dirname, 'examples/')
+        '@': path.join(__dirname, 'examples/'),
+        '~': path.join(__dirname, 'packages/')
       }
     },
     module: {

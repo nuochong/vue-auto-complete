@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils';
-import AutoComplete from '../../packages/auto-complete/AutoComplete.vue';
+import AutoComplete from '~/auto-complete/AutoComplete.vue';
 
 describe('AutoComplete.vue', () => {
   let wrapper;
