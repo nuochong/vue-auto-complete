@@ -57,6 +57,7 @@
 
       <ul v-if="isShowContent && isFocussed" ref="ul-container">
         <li
+          class="list-li"
           v-for="(item, index) in results"
           :key="index"
           @click="operate(liContent(item))"
@@ -67,7 +68,7 @@
           {{ liContent(item) }}
         </li>
       </ul>
-      <ul v-show="isNoResult && showNoResults && isFocussed">
+      <ul v-if="isNoResult && showNoResults && isFocussed">
         <li><slot name="noResults">暂无搜索结果</slot></li>
       </ul>
     </div>
@@ -140,7 +141,20 @@ export default {
       isNoResult: false,
       loading: false,
       error: '',
-      results: null,
+      results: [
+        {
+          id: 400162138,
+          name: '海阔天空1'
+        },
+        {
+          id: 400162139,
+          name: '海阔天空2'
+        },
+        {
+          id: 400162140,
+          name: '海阔天空3'
+        }
+      ],
       isShowContent: false,
       isFocussed: false,
       listSelected: 0, //当前激活的选项

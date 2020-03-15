@@ -1,22 +1,7 @@
 <template>
   <div class="home">
     <h1>自动完成</h1>
-    <AutoComplete
-      inputClass="test-class"
-      method="get"
-      placeholder="请输入搜索内容"
-      initial-value="海阔天空"
-      :maxlength="5"
-      :showNoResults="false"
-      :show-focus-results="true"
-      results-property="result.songs"
-      results-display="name"
-      source="https://musicapi.leanapp.cn/search?keywords="
-      @blur="onBlur"
-      @focus="onFocus"
-      @change="onChange"
-      @select="onSelect"
-    >
+    <AutoComplete results-property="result.songs" results-display="name" source="https://musicapi.leanapp.cn/search?keywords=">
       <span slot="noResults">没有找到</span>
     </AutoComplete>
     <h1>自动完成</h1>
