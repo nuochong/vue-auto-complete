@@ -33,6 +33,7 @@
   .app-wrap {
     max-width: 1012px;
     margin: 0 auto;
+    padding: 0 15px;
     table {
       margin: 0 auto;
       border-spacing: 0;
