@@ -17,7 +17,9 @@ module.exports = {
         "singleQuote": true,
         "trailingComma": "none",
         "bracketSpacing": true,
-        "jsxBracketSameLine": true
+        "jsxBracketSameLine": true,
+        "tabWidth": 2,
+        "printWidth":160,
       }
     ]
   },

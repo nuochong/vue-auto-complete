@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <h1>自动完成</h1>
     <AutoComplete
       inputClass="test-class"
       method="get"
@@ -18,7 +19,7 @@
     >
       <span slot="noResults">没有找到</span>
     </AutoComplete>
-
+    <h1>自动完成</h1>
     <AutoComplete
       inputClass="test-class"
       method="get"

@@ -1,6 +1,5 @@
 <template>
   <section class="auto-complete-container">
-    <h1>自动完成</h1>
     <div class="auto-complete-wrap" v-clickoutside="outsideClose">
       <input
         class="auto-complete-input auto-complete-input-padding"
@@ -17,25 +16,9 @@
         type="text"
         autocomplete="off"
       />
-      <div
-        class="auto-complete-btn"
-        @click="search"
-        v-if="!clearButtonIcon && !loading"
-      >
-        <i
-          slot="suffix"
-          aria-label="icon: search"
-          class="anticon anticon-search"
-        >
-          <svg
-            viewBox="64 64 896 896"
-            data-icon="search"
-            width="1em"
-            height="1em"
-            fill="currentColor"
-            aria-hidden="true"
-            focusable="false"
-          >
+      <div class="auto-complete-btn" @click="search" v-if="!clearButtonIcon && !loading">
+        <i slot="suffix" aria-label="icon: search" class="anticon anticon-search">
+          <svg viewBox="64 64 896 896" data-icon="search" width="1em" height="1em" fill="currentColor" aria-hidden="true" focusable="false">
             <path
               d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"
             ></path>
@@ -62,26 +45,9 @@
         </span>
       </span>
 
-      <span
-        class="auto-complete-btn auto-complete-clear"
-        @click="clear"
-        v-if="isShowClear && clearButtonIcon"
-      >
-        <span
-          role="img"
-          aria-label="close-circle"
-          class="anticon anticon-close-circle"
-        >
-          <svg
-            viewBox="64 64 896 896"
-            focusable="false"
-            class=""
-            data-icon="close-circle"
-            width="1em"
-            height="1em"
-            fill="currentColor"
-            aria-hidden="true"
-          >
+      <span class="auto-complete-btn auto-complete-clear" @click="clear" v-if="isShowClear && clearButtonIcon">
+        <span role="img" aria-label="close-circle" class="anticon anticon-close-circle">
+          <svg viewBox="64 64 896 896" focusable="false" class="" data-icon="close-circle" width="1em" height="1em" fill="currentColor" aria-hidden="true">
             <path
               d="M512 64C264.6 64 64 264.6 64 512s200.6 448 448 448 448-200.6 448-448S759.4 64 512 64zm165.4 618.2l-66-.3L512 563.4l-99.3 118.4-66.1.3c-4.4 0-8-3.5-8-8 0-1.9.7-3.7 1.9-5.2l130.1-155L340.5 359a8.32 8.32 0 01-1.9-5.2c0-4.4 3.6-8 8-8l66.1.3L512 464.6l99.3-118.4 66-.3c4.4 0 8 3.5 8 8 0 1.9-.7 3.7-1.9 5.2L553.5 514l130 155c1.2 1.5 1.9 3.3 1.9 5.2 0 4.4-3.6 8-8 8z"
             ></path>
@@ -101,7 +67,7 @@
           {{ liContent(item) }}
         </li>
       </ul>
-      <ul v-if="isNoResult && showNoResults && isFocussed">
+      <ul v-show="isNoResult && showNoResults && isFocussed">
         <li><slot name="noResults">暂无搜索结果</slot></li>
       </ul>
     </div>
@@ -177,11 +143,12 @@ export default {
       results: null,
       isShowContent: false,
       isFocussed: false,
-      listSelected: 0,
+      listSelected: 0, //当前激活的选项
       boundaryUp: 0,
       boundaryDown: 0,
       tempHeight: 0,
-      isShowClear: false
+      isShowClear: false,
+      currentScrollTop: 0
     };
   },
   watch: {},
@@ -226,7 +193,11 @@ export default {
       if (type == 'down') {
         this.boundaryUp = 0;
         this.boundaryDown++;
-        if (this.boundaryDown >= 6) {
+        if (this.checkScrollState(top, height)) {
+          console.log('下，第一次，或者返回置顶超出视窗后');
+          console.log('需要调整滚动条');
+          this.$refs['ul-container'].scrollTop = top - height + liHeight;
+        } else if (this.boundaryDown >= 6) {
           console.log('下，第一次，或者返回置顶超出视窗后');
           console.log('需要调整滚动条');
           this.$refs['ul-container'].scrollTop = top - height + liHeight;
@@ -234,10 +205,40 @@ export default {
       } else if (type == 'up') {
         this.boundaryDown = 0;
         this.boundaryUp++;
-        if (this.boundaryUp >= 6) {
+        if (this.checkScrollState(top, height)) {
           console.log('上，第一次，或者返回置顶超出视窗后');
           console.log('需要调整滚动条');
           this.$refs['ul-container'].scrollTop = top;
+        } else if (this.boundaryUp >= 6) {
+          console.log('上，第一次，或者返回置顶超出视窗后');
+          console.log('需要调整滚动条');
+          this.$refs['ul-container'].scrollTop = top;
+        }
+      }
+    },
+    checkScrollState(currentTop, ulHeight) {
+      const scrollTop = this.$refs['ul-container'].scrollTop;
+      // scrollTop是到ul-container顶部的距离
+      console.log('包含信息scrollTop', scrollTop);
+      console.log('包含信息currentTop', currentTop);
+      console.log('包含信息ulHeight', ulHeight);
+      if (currentTop > scrollTop && currentTop < scrollTop + ulHeight) {
+        console.log('包含');
+        // 当前元素在可视窗口ul-container内
+        return false;
+      } else {
+        console.log('未包含');
+        return true;
+      }
+    },
+    rememberCurrentLi(state) {
+      if (this.isShowContent && this.isFocussed) {
+        if (state == 'focus') {
+          this.$nextTick(function() {
+            this.$refs['ul-container'].scrollTop = this.currentScrollTop;
+          });
+        } else if (state == 'blur') {
+          this.currentScrollTop = this.$refs['ul-container'].scrollTop;
         }
       }
     },
@@ -295,12 +296,14 @@ export default {
     },
     blur() {
       this.$emit('blur', this.value);
+      this.rememberCurrentLi('blur');
       // this.isFocussed = false;
     },
     focus() {
       this.$emit('focus', this.value);
       this.isFocussed = true;
       this.results != null && (this.isShowContent = this.showFocusResults);
+      this.rememberCurrentLi('focus');
       console.log('this.isShowContent', this.isShowContent);
     },
     search() {
@@ -493,8 +496,7 @@ export default {
       background-color: #fff;
       border-radius: 4px;
       outline: none;
-      box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12),
-        0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
       margin-top: 3px;
       width: 100%;
       z-index: 10;
