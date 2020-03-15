@@ -19,7 +19,7 @@
     "deploy": "bash deploy.sh",
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
-    "format": "eslint --fix --ext .js,.vue src",
+    "format": "eslint --fix --ext .js,.vue examples",
     "lib": "vue-cli-service build --target lib --name auto-complete --dest lib packages/index.js"
   },
   "dependencies": {
