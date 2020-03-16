@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Example</router-link> | <router-link to="/documentation">Documentation</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/">项目示例</router-link> | <router-link to="/documentation">项目文档</router-link> |
+      <router-link to="/about">关于我们</router-link>
     </div>
     <img alt="Vue logo" src="./assets/logo.png" />
     <div class="app-wrap">

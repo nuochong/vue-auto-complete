@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <h1>自动完成</h1>
+    <h1>网络资源</h1>
     <AutoComplete results-property="result.songs" results-display="name" source="https://musicapi.leanapp.cn/search?keywords=">
       <span slot="noResults">没有找到</span>
     </AutoComplete>
-    <h1>自动完成</h1>
+    <h1>自定函数</h1>
     <AutoComplete
       inputClass="test-class"
       method="get"
