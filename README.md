@@ -21,6 +21,8 @@ import AutoComplete from 'vue-auto-complete';
 Vue.use(AutoComplete);
 ```
 
+### 网络资源
+
 ```xml
 <AutoComplete
   inputClass="test-class"
@@ -41,6 +43,8 @@ Vue.use(AutoComplete);
   <span slot="noResults">没有找到</span>
 </AutoComplete>
 ```
+
+### 自定函数
 
 ```xml
 <AutoComplete
