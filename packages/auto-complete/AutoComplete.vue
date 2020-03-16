@@ -141,20 +141,7 @@ export default {
       isNoResult: false,
       loading: false,
       error: '',
-      results: [
-        {
-          id: 400162138,
-          name: '海阔天空1'
-        },
-        {
-          id: 400162139,
-          name: '海阔天空2'
-        },
-        {
-          id: 400162140,
-          name: '海阔天空3'
-        }
-      ],
+      results: null,
       isShowContent: false,
       isFocussed: false,
       listSelected: 0, //当前激活的选项
