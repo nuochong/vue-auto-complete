@@ -12,6 +12,8 @@ yarn add vue-auto-complete
 npm install vue-auto-complete --save
 ```
 
+> 温馨提示：暂时未上传到 npm，请 github 下载使用！
+
 ## 项目使用
 
 main.js
@@ -64,17 +66,17 @@ Vue.use(AutoComplete);
 
 ## 可用道具
 
-| 道具             | 类型              | 是否需要 | 默认值     | 描述                                 |
+| 道具             | 类型              | 是否必须 | 默认值     | 描述                                 |
 | :--------------- | :---------------- | :------- | :--------- | :----------------------------------- |
 | source           | `String|Function` | true     |            | 数据资源                             |
-| method           | `String`          | String   | 'get'      | 请求方式                             |
+| method           | `String`          | false    | 'get'      | 请求方式                             |
 | initialValue     | `String|Number`   | false    |            | 初始值                               |
 | resultsProperty  | `String`          |          | 'name'     | 输入框默认提示                       |
 | resultsDisplay   | `String|Function` |          | 'name'     | 输入框默认提示                       |
 | placeholder      | `String`          | false    | '搜索内容' | 文本框输入提示                       |
 | maxlength        | `Number`          | false    |            | 输入框默认提示                       |
 | showNoResults    | `Boolean`         | false    | true       | 输入框默认提示                       |
-| showFocusResults | `Boolean`         |          | true       | 文本框获取焦点后是否显示上次搜索结果 |
+| showFocusResults | `Boolean`         | false    | true       | 文本框获取焦点后是否显示上次搜索结果 |
 | inputClass       | `String|Object`   | false    |            | 输入框默认提示                       |
 | isUpperLower     | `Boolean`         | false    |            | 输入框默认提示                       |
 | clearButtonIcon  | `Boolean`         | false    | false      | 输入框默认提示                       |
