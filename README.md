@@ -64,6 +64,36 @@ Vue.use(AutoComplete);
 </AutoComplete>
 ```
 
+```js
+export default {
+  name: 'complete',
+  methods: {
+    handleSearch(value) {
+      let result;
+      if (!value || value.indexOf('@') >= 0) {
+        result = [];
+      } else {
+        result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
+      }
+      console.log('前台处理结果', result);
+      return result;
+    },
+    onBlur() {
+      console.log('失去了焦点');
+    },
+    onFocus() {
+      console.log('获取了焦点');
+    },
+    onChange() {
+      console.log('内容改变了');
+    },
+    onSelect() {
+      console.log('选中时调用');
+    }
+  }
+};
+```
+
 ## 可用道具
 
 | 道具             | 类型              | 是否必须 | 默认值     | 描述                                 |

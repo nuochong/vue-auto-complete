@@ -50,7 +50,7 @@ export default {
       console.log('内容改变了');
     },
     onSelect() {
-      console.log('选中是调用');
+      console.log('选中时调用');
     }
   }
 };
