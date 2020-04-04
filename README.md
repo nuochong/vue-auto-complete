@@ -46,6 +46,8 @@ Vue.use(AutoComplete);
 </AutoComplete>
 ```
 
+> 温馨提示：示例中网络资源使用第三方网易云接口，由于接口不稳定，会出现无法获取数据等情况。
+
 ### 自定函数
 
 ```xml
@@ -73,7 +75,7 @@ export default {
       if (!value || value.indexOf('@') >= 0) {
         result = [];
       } else {
-        result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${value}@${domain}`);
+        result = ['gmail.com', '163.com', 'qq.com'].map((domain) => `${value}@${domain}`);
       }
       console.log('前台处理结果', result);
       return result;
@@ -89,8 +91,8 @@ export default {
     },
     onSelect() {
       console.log('选中时调用');
-    }
-  }
+    },
+  },
 };
 ```
 
