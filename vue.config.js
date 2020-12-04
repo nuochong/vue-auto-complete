@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-  publicPath: '/vue-auto-complete',
+  // publicPath: '/vue-auto-complete',
   // 取消map文件
   productionSourceMap: false,
   // 输出文件目录
